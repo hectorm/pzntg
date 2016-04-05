@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>pzntg - mario_walk</title>
+</head>
+
+<body>
+	<div id="container"></div>
+	<script src="../browser/pzntg.min.js"></script>
+	<script src="mariodata.js"></script>
+	<script>
+		var img = new Image(),
+			dataURIs = [],
+			state = 0;
+
+		for (var i = 0; i < 3; i++) {
+			dataURIs.push(pzntg.create({
+				pixels: mariodata.sprites['walk_' + i],
+				palette: mariodata.palette,
+				scale: 24
+			}));
+		}
+
+		setInterval(function() {
+			img.src = dataURIs[state];
+			if (++state > 2) state = 0;
+		}, 150);
+
+		document.body.appendChild(img);
+	</script>
+</body>
+
+</html>
+

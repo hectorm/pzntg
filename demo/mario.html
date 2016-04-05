@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>pzntg - mario</title>
+</head>
+
+<body>
+	<script src="../browser/pzntg.min.js"></script>
+	<script src="mariodata.js"></script>
+	<script>
+		pzntg.create({
+			pixels: mariodata.sprites.normal,
+			palette: mariodata.palette,
+			scale: 24,
+			callback: function(res) {
+				var img = new Image();
+				img.src = res;
+
+				document.body.appendChild(img);
+			}
+		});
+	</script>
+</body>
+
+</html>
+

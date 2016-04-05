@@ -1,0 +1,37 @@
+{
+  "name": "pzntg",
+  "version": "1.0.0",
+  "description": "Indexed color PNG image generator.",
+  "keywords": [
+    "png",
+    "image",
+    "generator"
+  ],
+  "author": "Héctor Molinero <hector@molinero.xyz>",
+  "homepage": "https://github.com/zant95/pzntg",
+  "repository": "zant95/pzntg",
+  "license": "MIT",
+  "main": "lib/pzntg.js",
+  "files": [
+    "browser/",
+    "lib/",
+    "test/"
+  ],
+  "scripts": {
+    "browserify": "browserify -r ./ -s pzntg > browser/pzntg.js",
+    "lint": "eslint lib/ test/ demo/",
+    "uglify": "uglifyjs browser/pzntg.js -mcb max-line-len=1024,beautify=false > browser/pzntg.min.js",
+    "test:performance": "node test/performance.js",
+    "test:results": "node test/results.js",
+    "build": "npm run lint && npm run test:results && npm run browserify && npm run uglify"
+  },
+  "dependencies": {
+    "base64-js": "^1.1.2",
+    "pako": "^1.0.1"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "eslint": "latest",
+    "uglify-js": "latest"
+  }
+}
